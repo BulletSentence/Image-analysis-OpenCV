@@ -15,3 +15,12 @@ def get_frames(filename):
             break
     video.release()
     yield None
+
+
+for f in get_frames(VFILE):
+    if f is None:
+        break
+    cv2.imshow('frame', f)
+    if cv2.waitKey(10) == 27:
+        break
+cv2.destroyAllWindows()
