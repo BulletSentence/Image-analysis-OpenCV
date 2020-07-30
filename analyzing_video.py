@@ -24,3 +24,18 @@ for f in get_frames(VFILE):
     if cv2.waitKey(10) == 27:
         break
 cv2.destroyAllWindows()
+
+
+def get_frame(filename, index):
+    counter = 0
+    video = cv2.VideoCapture(filename)
+    while video.isOpened():
+        ret, frame = video.read()
+        if ret:
+            if counter == index:
+                return frame
+            counter += 1
+        else:
+            break
+    video.release()
+    return None
