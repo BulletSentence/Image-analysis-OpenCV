@@ -48,4 +48,8 @@ def get_frame(filename, index):
 frame = get_frame(VFILE, 80)
 print('shape ', frame.shape)
 # Pixel top-left corner
-print('pixel at (0,0)', frame[0, 0, :])
+print('pixel at (0,0) (B,G,R)', frame[0, 0, :])
+
+
+# Displaying a frame
+plt.imshow(frame)
