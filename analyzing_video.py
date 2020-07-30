@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 VFILE = "video/Teste.mp4"
 
 
+# GET MULTIPLES FRAMES
 def get_frames(filename):
     video = cv2.VideoCapture(filename)
     while video.isOpened():
@@ -17,6 +18,7 @@ def get_frames(filename):
     yield None
 
 
+# WORK WITH FRAMES
 for f in get_frames(VFILE):
     if f is None:
         break
@@ -26,6 +28,7 @@ for f in get_frames(VFILE):
 cv2.destroyAllWindows()
 
 
+# GET ONE FRAME
 def get_frame(filename, index):
     counter = 0
     video = cv2.VideoCapture(filename)
@@ -39,3 +42,10 @@ def get_frame(filename, index):
             break
     video.release()
     return None
+
+
+# Examining Pixels
+frame = get_frame(VFILE, 80)
+print('shape ', frame.shape)
+# Pixel top-left corner
+print('pixel at (0,0)', frame[0, 0, :])
