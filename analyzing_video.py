@@ -53,3 +53,10 @@ print('pixel at (0,0) (B,G,R)', frame[0, 0, :])
 
 # Displaying a frame
 plt.imshow(frame)
+
+
+# For FIX Errors (Run on Bash)
+# export QT_DEVICE_PIXEL_RATIO = 0
+# export QT_AUTO_SCREEN_SCALE_FACTOR = 1
+# export QT_SCREEN_SCALE_FACTORS = 1
+# export QT_SCALE_FACTOR = 1
