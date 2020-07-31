@@ -92,6 +92,9 @@ plt.show()
 
 
 # Processing the video
+fourcc = cv2.VideoWriter_fourcc('M', 'P', '4', 'V')
+video_out = cv2.VideoWriter("new_vid.mp4", fourcc, 30, (640, 480))
+
 counter = 0
 for frame in get_frames(VFILE):
     if frame is None:
@@ -99,10 +102,11 @@ for frame in get_frames(VFILE):
     cv2.putText(frame, text=str(counter),
                 org=(100, 100), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
                 fontScale=1, color=(0, 255, 0), thickness=2)
-    cv2.imshow('Video Render', frame)
-    if cv2.waitKey(10) == 27:
-        break
+#    cv2.imshow('Video Render', frame)
+#    if cv2.waitKey(10) == 27:
+#        break
+    video_out.write(frame)
     counter += 1
-cv2.destroyAllWindows()
-
+video_out.release()
+print("Render Completed")
 
