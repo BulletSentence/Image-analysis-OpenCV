@@ -20,13 +20,13 @@ def get_frames(filename):
 
 
 # WORK WITH FRAMES
-for f in get_frames(VFILE):
-    if f is None:
-        break
-    cv2.imshow('frame', f)
-    if cv2.waitKey(10) == 27:
-        break
-cv2.destroyAllWindows()
+# for f in get_frames(VFILE):
+#     if f is None:
+#         break
+#     cv2.imshow('frame', f)
+#     if cv2.waitKey(10) == 27:
+#         break
+# cv2.destroyAllWindows()
 
 
 # GET ONE FRAME
@@ -89,3 +89,20 @@ cv2.circle(
 fixed_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 plt.imshow(fixed_frame)
 plt.show()
+
+
+# Processing the video
+counter = 0
+for frame in get_frames(VFILE):
+    if frame is None:
+        break
+    cv2.putText(frame, text=str(counter),
+                org=(100, 100), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+                fontScale=1, color=(0, 255, 0), thickness=2)
+    cv2.imshow('Video Render', frame)
+    if cv2.waitKey(10) == 27:
+        break
+    counter += 1
+cv2.destroyAllWindows()
+
+
