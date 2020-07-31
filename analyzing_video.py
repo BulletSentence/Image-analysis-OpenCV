@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import cv2
+import numpy as np
 
 
 VFILE = "video/Teste.mp4"
@@ -70,3 +71,11 @@ plt.show()
 # CROP video frame
 plt.imshow(fix_frame[240:480, 320:640])
 plt.show()
+
+# Adjusting britghtness
+darker = 0.2 * fix_frame
+darker = darker.astype(np.uint8)
+plt.imshow(darker)
+plt.show()
+
+# Drawing figures into a frame
