@@ -51,8 +51,14 @@ print('shape ', frame.shape)
 print('pixel at (0,0) (B,G,R)', frame[0, 0, :])
 
 
-# Displaying a frame
+# Displaying a frame without color fix
 plt.imshow(frame)
+plt.show()
+
+# Display a frame with color fix
+fix_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+print('Pixel at (0,0) ', fix_frame[0,0,:])
+plt.imshow(fix_frame)
 plt.show()
 
 # For FIX Errors (Run on Bash)
@@ -60,3 +66,7 @@ plt.show()
 # export QT_AUTO_SCREEN_SCALE_FACTOR = 1
 # export QT_SCREEN_SCALE_FACTORS = 1
 # export QT_SCALE_FACTOR = 1
+
+# CROP video frame
+plt.imshow(fix_frame[240:480, 320:640])
+plt.show()
