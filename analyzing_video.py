@@ -110,3 +110,9 @@ for frame in get_frames(VFILE):
 video_out.release()
 print("Render Completed")
 
+# Finding the total video frames
+video = cv2.VideoCapture(VFILE)
+count = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+video.release()
+print('frame count: ', count)
+
