@@ -116,3 +116,19 @@ count = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
 video.release()
 print('frame count: ', count)
 
+# Collage
+skip_frames = count // 15
+frames = []
+counter = 0
+for f in get_frames(VFILE):
+    if counter % skip_frames == 0:
+        frames.append(f)
+    counter += 1
+
+row1 = np.concatenate(frames[0:5], axis=1)
+row2 = np.concatenate(frames[5:10], axis=1)
+row3 = np.concatenate(frames[10:15], axis=1)
+collage = np.concatenate((row1, row2, row3), axis=0)
+collage = cv2.cvtColor(collage, cv2.COLOR_BGR2RGB)
+plt.imshow(collage)
+plt.show()
