@@ -53,8 +53,8 @@ print('pixel at (0,0) (B,G,R)', frame[0, 0, :])
 
 
 # Displaying a frame without color fix
-plt.imshow(frame)
-plt.show()
+# plt.imshow(frame)
+# plt.show()
 
 # Display a frame with color fix
 fix_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -79,3 +79,13 @@ plt.imshow(darker)
 plt.show()
 
 # Drawing figures into a frame
+frame = get_frame(VFILE, 200)
+cv2.circle(
+    frame,
+    center=(830,200),
+    radius=50,
+    color=(0,0,255),
+    thickness=8)
+fixed_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+plt.imshow(fixed_frame)
+plt.show()
