@@ -1,6 +1,6 @@
-import numpy as np
-import cv2
 import matplotlib.pyplot as plt
+import cv2
+
 
 VFILE = "video/Teste.mp4"
 
@@ -53,7 +53,7 @@ print('pixel at (0,0) (B,G,R)', frame[0, 0, :])
 
 # Displaying a frame
 plt.imshow(frame)
-
+plt.show()
 
 # For FIX Errors (Run on Bash)
 # export QT_DEVICE_PIXEL_RATIO = 0
